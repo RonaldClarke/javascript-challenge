@@ -24,7 +24,10 @@ function runFilter() {
     d3.event.preventDefault();
     var inputDate = inputFilterDate.property("value");
     var inputCity = inputFilterCity.property("value");
-    var FilteredData = tableData.filter(sighting => sighting.datetime === inputDate);
+    var FilteredData = tableData.filter(sighting => {
+        sighting.datetime === inputDate
+        sighting.city === inputCity
+    });
     tbody.html("");
     FilteredData.forEach((UFOReport) => {
         var row = tbody.append("tr");
